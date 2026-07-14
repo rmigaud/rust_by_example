@@ -1,5 +1,5 @@
 // This is a comment, you can run this example by issuing the command:
-// `cargo run --example helloworld_1`
+// `cargo run --example helloworld`
 
 /// This is a documentation comment for the main function
 fn main() {
