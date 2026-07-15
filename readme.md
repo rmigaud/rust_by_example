@@ -13,10 +13,20 @@ To run an example use the command `cargo run --example {example_name}`.
 ## cargo run --example formatted_print
 
 - Formatting macros: print, println, eprint, eprintln.
-- printing variables by name and by argument position.
-- formatting numbers in binary, octal, and hexadecimal representations.
+- Printing variables by name and by argument position.
+- Formatting numbers in binary, octal, and hexadecimal representations.
 - The Display Trait.
 
 ## cargo run --example debug
 
-- The Debug Trait
+- All types can derive the Debug Trait (not true for Display trait).
+- Pretty printing with `{:#}`.
+- Custom types with structs.
+
+## cargo run --example display
+
+- Import via `use` statement.
+- Using `impl` to implement the `fmt::Display` trait.
+- The `write!` macro.
+
+## cargo run --example testcase_list
