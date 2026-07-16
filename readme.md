@@ -16,6 +16,7 @@ To run an example use the command `cargo run --example {example_name}`.
 - Printing variables by name and by argument position.
 - Formatting numbers in binary, octal, and hexadecimal representations.
 - The Display Trait.
+- assert_eq! macro
 
 ## cargo run --example debug
 
@@ -30,3 +31,7 @@ To run an example use the command `cargo run --example {example_name}`.
 - The `write!` macro.
 
 ## cargo run --example testcase_list
+
+- std::collections::LinkedList;
+- LinkedList, push_back() method.
+- if-else statements
