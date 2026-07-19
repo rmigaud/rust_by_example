@@ -35,3 +35,9 @@ To run an example use the command `cargo run --example {example_name}`.
 - std::collections::LinkedList;
 - LinkedList, push_back() method.
 - if-else statements
+
+## cargo run --example formatting
+
+- This formatting functionality is implemented via traits and there is one trait
+  for each argument type.
+-
