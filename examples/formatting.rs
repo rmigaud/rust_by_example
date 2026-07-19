@@ -38,8 +38,16 @@ struct Color {
 }
 
 impl Display for Color {
+    //! Display Format Example: "RGB (128, 255, 90) 0x80FF5A"
+    //! The formula for calculating a color in the RGB color space is RGB = R * 65536 + G * 256 + B
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        write!(f, "[{},{},{}]", self.red, self.green, self.blue)
+        let rgb: u32 = self.red as u32 * 65536 + self.green as u32 * 256 + self.blue as u32;
+
+        write!(
+            f,
+            "RGB ({}, {}, {}) 0x{:06X}",
+            self.red, self.green, self.blue, rgb
+        )
     }
 }
 
@@ -81,5 +89,32 @@ fn main() {
         },
     ] {
         println!("{color}");
+    }
+}
+
+// cargo test --example formatting
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn city_display_test() {
+        // Format the display as follows:
+        //
+        // RGB (128, 255, 90) 0x80FF5A
+        // RGB (0, 3, 254) 0x0003FE
+        // RGB (0, 0, 0) 0x000000
+        let black = Color {
+            red: 0,
+            green: 0,
+            blue: 0,
+        };
+        let black_fmt = "RGB (0, 0, 0) 0x000000";
+        let blue_fmt = "RGB (0, 3, 254) 0x0003FE";
+        let green_fmt = "RGB (128, 255, 90) 0x80FF5A";
+
+        assert_eq!(black_fmt, format!("{black}"));
+        assert_eq!(blue_fmt, format!("{blue_fmt}"));
+        assert_eq!(green_fmt, format!("{green_fmt}"));
     }
 }
