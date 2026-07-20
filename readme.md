@@ -40,4 +40,14 @@ To run an example use the command `cargo run --example {example_name}`.
 
 - This formatting functionality is implemented via traits and there is one trait
   for each argument type.
--
+- Casting primitive types.
+- Configure tests module with `#[cfg(tests)] mod tests {}` block.
+
+## cargo run --example primitives
+
+- Signed Integers: i8, i16, i32, i64, i128
+- Unsigned Integers: u8, u16, u32, u64, u64
+- Floating Point: f32, f64
+- char: unicode scalar values like 'a', 'α' '∞' 4 bytes each.
+- bool: true or false
+- unit type: (), whose only possible value is the empty tuple: ().
