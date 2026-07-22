@@ -6,6 +6,8 @@ and each tuple itself is a value with type signature (T1, T2, ...), where T1, T2
 members. Functions can use tuples to return multiple values, as tuples can hold any number of values.
 */
 
+use std::fmt::{Formatter, Result};
+
 pub fn reverse(pair: (i32, bool)) -> (bool, i32) {
     //! Tuples can be used as function arguments and as return values.
     //! `let` can be used to destruct the members of a tuple into variables.
@@ -17,6 +19,12 @@ pub fn reverse(pair: (i32, bool)) -> (bool, i32) {
 // The following struct is for the activity
 #[derive(Debug)]
 struct Matrix(f32, f32, f32, f32);
+
+impl std::fmt::Display for Matrix {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        write!(f, "( {} {} )\n( {} {} )\n", self.0, self.1, self.2, self.3)
+    }
+}
 
 fn main() {
     let long_tuple = (
@@ -67,10 +75,7 @@ mod tests {
     fn matrix_display_test() {
         let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
         let result = format!("{}", matrix);
-        let expected = "\
-        ( 1.1 1.2 )
-        ( 2.1 2.2 )
-        ";
+        let expected = "( 1.1 1.2 )\n( 2.1 2.2 )\n";
         assert_eq!(result, expected);
     }
 
@@ -78,12 +83,7 @@ mod tests {
     fn transpose_test() {
         let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
         let result = format!("{}", transpose(matrix));
-        let expected = "Matrix:
-        ( 1.1 1.2 )
-        ( 2.1 2.2 )
-        Transpose:
-        ( 1.1 2.1 )
-        ( 1.2 2.2 )";
+        let expected = "( 1.1 2.1 )\n( 1.2 2.2 )\n";
         assert_eq!(result, expected);
     }
 }
@@ -109,3 +109,6 @@ Matrix:
 Transpose:
 ( 1.1 2.1 )
 ( 1.2 2.2 )*/
+fn transpose(matrix: Matrix) -> Matrix {
+    Matrix(matrix.0, matrix.2, matrix.1, matrix.3)
+}
