@@ -51,3 +51,13 @@ To run an example use the command `cargo run --example {example_name}`.
 - char: unicode scalar values like 'a', 'α' '∞' 4 bytes each.
 - bool: true or false
 - unit type: (), whose only possible value is the empty tuple: ().
+
+## cargo run --example literals_and_operators
+
+- Infixing type annotation to the end of a number `42u8`.
+- Scientific Notation representing Ten-Thousand `10e3`.
+- Underscores for readability One Million = `1_000_000`.
+- Logical comparisons such as `true && false`: `false`
+- Bitwise operations such as `0101 & 0110`: `0100`
+
+## cargo run --example tuples
