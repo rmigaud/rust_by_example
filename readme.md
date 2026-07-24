@@ -61,3 +61,31 @@ To run an example use the command `cargo run --example {example_name}`.
 - Bitwise operations such as `0101 & 0110`: `0100`
 
 ## cargo run --example tuples
+
+- Creating a tuple `()`.
+- Indexing a tuple `tuple.0`.
+- Destructure a tuples members with `let (member1, member2) = tuple;`.
+- Implemented Display Trait for Matrix structure.
+- Implemented Transpose function.
+
+## cargo run --examples arrays_and_slices
+
+- Arrays are collection of same type objects stored contiguously in memory.
+  `[i32;5]`: `[0,0,0,0,0]`.
+- Initializing an array to the same value.
+- Using `std::mem::size_of_val()` to examine the memory footprint of arrays.
+- Using Slices to view a section of an array `[starting_index..ending_index]`.
+
+## cargo run --example structures
+
+- Structs are essentially named tuples, creating a custom type.
+- Classic C structs have named parameters `struct Person {age:u8}`.
+- Unit structs are used in generics `struct Unit;`.
+- Tuple-like structs have nameless fields: `struct TupleLike{i32,u8,bool}`.
+- Access fields with `.` operator `person.age`.
+- Nested Destructuring in the `rect_area` activity.
+- Writing functions that return structs with the `fn square` activity.
+
+## cargo run --example enums
+
+- enums allow the creation of custom types by enumerating all possible variants
