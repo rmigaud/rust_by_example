@@ -21,11 +21,13 @@ struct Unit;
 struct Pair(i32, f32);
 
 // A struct with two fields
+#[derive(Debug, PartialEq, Clone)]
 struct Point {
     x: f32,
     y: f32,
 }
 
+#[derive(Debug, PartialEq)]
 struct Rectangle {
     // A rectangle can be specified by where the top left and bottom right corners are in space.
     top_left: Point,
@@ -87,4 +89,69 @@ fn main() {
 
     // Access the field of the point
     println!("pair contains {:?} and {:?}", integer, decimal);
+}
+
+// 1. Add a function `rect_area` which calculates the area of a `Rectangle` (try using nested destructuring).
+
+fn rect_area(rect: Rectangle) -> f32 {
+    ((rect.bottom_right.x - rect.top_left.x) * (rect.bottom_right.y - rect.top_left.y)).abs()
+}
+#[cfg(test)]
+mod rect_tests {
+
+    #[test]
+    fn area_tests() {
+        use super::*;
+        let unit_rect = Rectangle {
+            top_left: Point { x: 0.0, y: 0.0 },
+            bottom_right: Point { x: 0.0, y: 0.0 },
+        };
+        assert_eq!(rect_area(unit_rect), 0.0);
+
+        let len_one = Rectangle {
+            top_left: Point { x: -1.0, y: 1.0 },
+            bottom_right: Point { x: 0.0, y: 0.0 },
+        };
+        assert_eq!(rect_area(len_one), 1.0);
+
+        let len_two = Rectangle {
+            top_left: Point { x: -1.0, y: 1.0 },
+            bottom_right: Point { x: 1.0, y: -1.0 },
+        };
+        assert_eq!(rect_area(len_two), 4.0);
+    }
+}
+
+// 2. Add a function `square` which takes a `Point` and a f32 as arguments, and returns a `Rectangle` with
+//    its top left corner on the point, and a width and height corresponding to the f32.
+
+fn square(p: Point, n: f32) -> Rectangle {
+    Rectangle {
+        top_left: p.clone(),
+        bottom_right: Point {
+            x: p.x - n,
+            y: p.y - n,
+        },
+    }
+}
+
+#[cfg(test)]
+mod square_tests {
+    use super::*;
+    #[test]
+    fn square_test() {
+        let pt = Point { x: 1.0, y: 2.0 };
+        let size = 2.0;
+        assert_eq!(
+            square(pt.clone(), size),
+            Rectangle {
+                top_left: pt.clone(),
+                bottom_right: Point {
+                    x: &pt.x - size,
+                    y: &pt.y - size
+                }
+            }
+        );
+        assert_eq!(rect_area(square(pt.clone(), size)), size * size);
+    }
 }
