@@ -88,4 +88,5 @@ To run an example use the command `cargo run --example {example_name}`.
 
 ## cargo run --example enums
 
-- enums allow the creation of custom types by enumerating all possible variants
+- Enums allow the creation of custom types by enumerating all possible variants
+- Using the `match` keyword to create a callback for each invariant of an enum.
