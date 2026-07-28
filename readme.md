@@ -90,3 +90,10 @@ To run an example use the command `cargo run --example {example_name}`.
 
 - Enums allow the creation of custom types by enumerating all possible variants
 - Using the `match` keyword to create a callback for each invariant of an enum.
+
+## cargo run --example type_aliases
+
+- Referring to an enum variant via its alias. This might be useful if the enum
+  name is too long.
+- `type` keyword.
+- `self` is an alias that is commonly used in `impl` blocks.
