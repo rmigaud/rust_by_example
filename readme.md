@@ -97,3 +97,14 @@ To run an example use the command `cargo run --example {example_name}`.
   name is too long.
 - `type` keyword.
 - `self` is an alias that is commonly used in `impl` blocks.
+
+## cargo run --example use
+
+- The `use` keyword will import libraries or binaries from source code others
+  have written.
+- `use` can also be used to adjust the scope of imports.
+
+## cargo run --example linked_list
+
+- Basic implementation of a linked list.
+- Using Box to store data into memory.
