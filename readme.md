@@ -107,4 +107,10 @@ To run an example use the command `cargo run --example {example_name}`.
 ## cargo run --example linked_list
 
 - Basic implementation of a linked list.
-- Using Box to store data into memory.
+- Using `Box` to store persistent data into memory.
+
+## cargo run --example c_like_enums
+
+- C-like enums can also be established.
+- Implicit enumerations start at 0.
+- Explicit enumerations are defined with the assignment operator `=`.
