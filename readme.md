@@ -114,3 +114,16 @@ To run an example use the command `cargo run --example {example_name}`.
 - C-like enums can also be established.
 - Implicit enumerations start at 0.
 - Explicit enumerations are defined with the assignment operator `=`.
+
+## cargo run --example constants
+
+- Rust has two different types of constants which can be declared in any scope
+  including global, but type annotations are required.
+- `static` is a possibly mutable variable with 'static lifetime. The static
+  lifetime is inferred and does not have to be specified.
+- Modifying a mutable static variable is unsafe.
+
+## cargo run --example mutability
+
+- By default all variables are immutable unless specified by the `mut` keyword.
+- The Compiler will warn you if you misuse an immutable variable.
