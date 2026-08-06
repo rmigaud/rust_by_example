@@ -127,3 +127,18 @@ To run an example use the command `cargo run --example {example_name}`.
 
 - By default all variables are immutable unless specified by the `mut` keyword.
 - The Compiler will warn you if you misuse an immutable variable.
+
+## cargo run --example declare_first
+
+- All variables must be initialized before used.
+- Initialize variables as close to their use as possible.
+
+## cargo run --example freezing
+
+- When data is bound to the same name immutably, it also freezes.
+- Frozen data can't be modified until the immutable binding goes out of scope.
+
+## cargo run --example type_casting
+
+- Rust provides no implicit type conversion between primitives, but explicit
+  type casting can be attained with use of the `as` keyword
